@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cotizacion-card',
@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./cotizacion-card.component.css']
 })
 export class CotizacionCardComponent {
-valor: number = 0;
-cryptomoneda: string = "";
+@Input() valor: number = 0;
+@Input() cryptomoneda: string = "";
 }
