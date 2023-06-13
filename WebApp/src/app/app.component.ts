@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ICotizacion } from './modelos/cotizacion.interface';
+import { CryptoService } from './crypto.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,32 @@ import { ICotizacion } from './modelos/cotizacion.interface';
 })
 export class AppComponent {
   title = 'DemoPrueba';
-  cotizaciones: ICotizacion[] | undefined
+  cotizaciones: ICotizacion[] | undefined;
+  importe: number;
+  timeRefresh: ReturnType<typeof setInterval>|undefined;
 
-  constructor(){
+  constructor(private _cryptoservice: CryptoService){
     this.cotizaciones = []
-    this.cotizaciones.push({valor:1,cryptomoneda:"BTC"})
-    this.cotizaciones.push({valor:5,cryptomoneda:"CTB"})
-    this.cotizaciones.push({valor:4,cryptomoneda:"CBV"})
+    this.importe = 0;
   }
   pedirCotizacion()
   {
-    console.log(this.cotizaciones)
+    if(this.timeRefresh!==undefined)
+        {clearInterval(this.timeRefresh)}
+          this.timeRefresh = setInterval(()=>{
+            console.log("buscando datos",this.importe)
+            this._cryptoservice.getCryptoData(this.importe).then(data => this.cotizaciones = data).catch(error=>{console.log(error)
+            })
+          },5000)
+        
+          this._cryptoservice.getCryptoData(this.importe).then(data => 
+            {
+              this.cotizaciones = data              
+            }
+            ).catch(error=>{console.log(error)
+           });
+        
+     
   }
 }
 
