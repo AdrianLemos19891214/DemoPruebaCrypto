@@ -8,10 +8,16 @@
     margin:10px;
 }
 
-.littleletter {
+.little-letter {
     font-size: 10px;
   }
 
 .subtitle{
     font-size: 12px;
+}
+
+.input-no-spin-button::-webkit-inner-spin-button,
+.input-no-spin-button::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  text-align: right;
 }
