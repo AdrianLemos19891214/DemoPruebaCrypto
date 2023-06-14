@@ -318,12 +318,8 @@
     </div>
 
   </div>
-  <p class="subtitle">Ingrese un importe y presione el boton verde para confirmar</p>
+  <p class="subtitle">Para ver la equivalencia de valores segun la cotizacion actual de las distintas cryptomonedas, ingrese un importe y presione el boton verde para confirmar</p>
 
-  <!-- Resources -->
-  <h2>Cotizaciones:</h2>
-  
-  
   <div class="card-container" >
     <app-cotizacion-card *ngFor="let item of cotizaciones" [valor] = "item.valor" [cryptomoneda] = "item.cryptomoneda"> </app-cotizacion-card>
   </div>
