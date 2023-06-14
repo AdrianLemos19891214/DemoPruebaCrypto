@@ -13,6 +13,7 @@ namespace CryptoAPI.Controllers
         private IConfiguration _configuration;
         private string listaCoins;
         private string apiKey;
+        private string apiUrl;
         private static readonly HttpClient client = new HttpClient();
 
         public CryptoController(IConfiguration configuration)
@@ -20,6 +21,7 @@ namespace CryptoAPI.Controllers
             _configuration = configuration;
             listaCoins = _configuration.GetSection("Coins").Get<string>();
             apiKey = _configuration.GetSection("CoinMarketCapKey").Get<string>();
+            apiUrl = _configuration.GetSection("CoinMarketApiUrl").Get<string>();
         }
 
         [HttpGet]
@@ -27,7 +29,7 @@ namespace CryptoAPI.Controllers
         {
 
             List<CotizacionDto> listaCotizaciones = new List<CotizacionDto>();
-            var url = new UriBuilder("https://sandbox-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest");
+            var url = new UriBuilder(apiUrl);
 
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             queryString["slug"] = listaCoins;
@@ -53,7 +55,7 @@ namespace CryptoAPI.Controllers
 
             foreach (var item in result.Data)
             {
-                listaCotizaciones.Add(new CotizacionDto { valor = item.Value.Quote.USD.Price * importeUsd, cryptomoneda = item.Value.Slug });//.Symbol
+                listaCotizaciones.Add(new CotizacionDto { valor = item.Value.Quote.USD.Price * importeUsd, cryptomoneda = item.Value.Slug.ToUpper() });//.Symbol
             }
             return listaCotizaciones;
 

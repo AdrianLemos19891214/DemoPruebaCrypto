@@ -14,3 +14,8 @@
     transition: all 0.2s ease-in-out;
     line-height: 24px;
   }
+
+  .card table td {
+    text-align: center;
+    font-weight: bold;
+  }
