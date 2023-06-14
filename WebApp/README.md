@@ -1,27 +1,3 @@
-# DemoPrueba
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Proyecto web desarrollado en Angular 15.2.2, invoca a una API rest desarrollada en C# y actualiza en pantalla un valor numerico basado en el valor actual de la cotizacion de diferentes criptomonedas.
+El usuario tiene un campo input con el label "USD" y un boton de Submit. 
+Debe ingresar un valor numerico en el campo Input y, al presionar el boton de Submit, la web calcula automaticamente el valor ingresado multiplicado por la cotizacion actual de las cryptomonedas y muestra los resultados en pantalla, debajo del campo Input.
