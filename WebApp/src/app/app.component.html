@@ -1,12 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -327,18 +318,19 @@
     </div>
 
   </div>
+  <p class="subtitle">Ingrese un importe y presione el boton verde para confirmar</p>
 
   <!-- Resources -->
-  <h2>Cotizaciones</h2>
-  <p>Aquí puede visualizar el importe ingresado convertido al valor actual de las distintas cryptomonedas:</p>
+  <h2>Cotizaciones:</h2>
+  
   
   <div class="card-container" >
     <app-cotizacion-card *ngFor="let item of cotizaciones" [valor] = "item.valor" [cryptomoneda] = "item.cryptomoneda"> </app-cotizacion-card>
   </div>
 
   <!-- Footer -->
-  <footer>
-    Valores tomados de &nbsp;
+  <footer class="littleletter">
+    Valores de cotización correspondientes a &nbsp;
       <a href="https://coinmarketcap.com/" target="_blank" rel="noopener"> CoinMarketCap.
        
       </a>
